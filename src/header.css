@@ -1,0 +1,6 @@
+.AppHeader div {
+   background-image: url('img/logo.jpg');
+   background-position: right 30%;
+   background-repeat: no-repeat;
+   background-color: #718cab;
+}

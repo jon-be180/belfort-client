@@ -1,0 +1,7 @@
+.tabs-content { background-color: #333; }
+.tabs { background-color: #333; }
+.tabs-title>a { color: #6fa3c5; }
+.tabs-title>a:hover { background: #222; }
+.tabs-title>a[aria-selected=true] { background: #222; }
+.tabs { border: none; /*1px solid #000;*/ }
+.tabs-content.vertical { border: none; /*1px solid #000;*/ }
