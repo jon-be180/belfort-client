@@ -87,6 +87,7 @@ export default function TradesList() {
   // also there's a warning about dispatch() but no specific "fix" is posible i think 
   useEffect(() => {
     dispatch(fetchInactiveTrades(userId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [expanded, setExpanded] = useState(false);
@@ -116,7 +117,6 @@ export default function TradesList() {
   const prices = useSelector(state => state.trade.prices);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     dispatch(fetchPrices());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
