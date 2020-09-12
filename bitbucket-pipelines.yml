@@ -24,4 +24,5 @@ pipelines:
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
               S3_BUCKET: 'be180.co.uk'
-              LOCAL_PATH: './'
+              LOCAL_PATH: './public'
+              CACHE_CONTROL: 3600
