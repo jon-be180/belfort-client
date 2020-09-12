@@ -84,9 +84,9 @@ export default function TradesList() {
   // the [] is the list of variables for the function to run when it changes, however
   // when i use trades it still loops forever
   // also there's a warning about dispatch() but no specific "fix" is posible i think 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     dispatch(fetchActiveTrades(userId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [expanded, setExpanded] = useState(false);
