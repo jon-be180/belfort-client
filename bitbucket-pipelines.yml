@@ -13,7 +13,7 @@ pipelines:
           - node
         script: # Modify the commands below to build your repository.
           - npm install
-          #- npm test
+          - npm run build
     - step:
          name: Deploy to S3
          deployment: production
@@ -24,4 +24,4 @@ pipelines:
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
               S3_BUCKET: 'be180.co.uk'
-              LOCAL_PATH: './public'
+              LOCAL_PATH: './build'
