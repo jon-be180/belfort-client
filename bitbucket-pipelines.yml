@@ -25,4 +25,3 @@ pipelines:
               AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
               S3_BUCKET: 'be180.co.uk'
               LOCAL_PATH: './public'
-              CACHE_CONTROL: 3600
