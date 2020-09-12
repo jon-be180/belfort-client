@@ -92,6 +92,7 @@ export default ({data}) => {
   React.useEffect(() => {
     candlestickSeries.setData(data[1].data);
     lineSeries.setData(data[0].data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, data);
 
   return (
