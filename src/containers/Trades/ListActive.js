@@ -84,6 +84,7 @@ export default function TradesList() {
   // the [] is the list of variables for the function to run when it changes, however
   // when i use trades it still loops forever
   // also there's a warning about dispatch() but no specific "fix" is posible i think 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     dispatch(fetchActiveTrades(userId));
   }, []);
@@ -177,7 +178,7 @@ export default function TradesList() {
           <CardContent>
             <Grid container spacing={3}>
               <Grid item>
-               { trigger.type == 'sell' ?
+               { trigger.type === 'sell' ?
                 <ArrowUpwardIcon style={{ color: green[500] }}/>
                 :
                 <ArrowDownwardIcon style={{ color: red[500] }}/>
