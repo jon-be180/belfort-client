@@ -117,6 +117,7 @@ export default function TradesList() {
 
   useEffect(() => {
     dispatch(fetchPrices());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // @TODO this doesnt trigger properly causing errors
