@@ -4,8 +4,6 @@ import * as serviceWorker from './serviceWorker';
 
 import thunkMiddleware from 'redux-thunk'
 
-
-import Header from './Header';
 import App from './App';
 
 import { compose, createStore, applyMiddleware } from 'redux';
@@ -28,7 +26,6 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Header />
       <App />
     </Provider>
   </React.StrictMode>,

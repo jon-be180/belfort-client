@@ -8,10 +8,13 @@ import {
   Route,
 } from 'react-router-dom';
 
+import Header from './Header';
+
 // tabs
+import Login from './containers/Auth/Login';
 import Reports from './containers/Reports/Reports';
 import Trades from './containers/Trades/Trades';
-import Charts from './containers/Charts/Charts';
+import Strategies from './containers/Strategies/Strategies';
 import Settings from './containers/Settings';
 
 // render
@@ -24,43 +27,43 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props;
 
-    return (
-          <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-          >
-            {value === index && (
-                      <Box p={3}>
-                        {children}
-                      </Box>
-                    )}
-          </div>
-        );
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
 }
 
 TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
 };
 
 function a11yProps(index) {
-    return {
-          id: `simple-tab-${index}`,
-          'aria-controls': `simple-tabpanel-${index}`,
-        };
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
 }
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-          flexGrow: 1,
-        },
-    
+  root: {
+    flexGrow: 1,
+  },
+
 }));
 
 
@@ -81,7 +84,7 @@ export default function App() {
           type: 'dark',
         }
       })
-    ,[]
+    , []
   );
 
 
@@ -90,27 +93,31 @@ export default function App() {
       <CssBaseline />
       <Router>
         <Switch>
+          <Route exact path="/login">
+            <Login></Login>
+          </Route>
           <Route exact path="/">
+            <Header />
             <Container className={classes.root} maxWidth="xl">
               <AppBar position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                   <Tab label="Trades" {...a11yProps(0)} />
-                  <Tab label="Signals" {...a11yProps(1)} />
+                  <Tab label="Strategies" {...a11yProps(1)} />
                   <Tab label="Reports" {...a11yProps(2)} />
                   <Tab label="Settings" {...a11yProps(3)} />
                 </Tabs>
               </AppBar>
               <TabPanel value={value} index={0}>
-                <Trades/>
+                <Trades />
               </TabPanel>
               <TabPanel value={value} index={1}>
-                <Charts/>
+                <Strategies />
               </TabPanel>
               <TabPanel value={value} index={2}>
-                <Reports/>
+                <Reports />
               </TabPanel>
               <TabPanel value={value} index={3}>
-                <Settings/>
+                <Settings />
               </TabPanel>
             </Container>
           </Route>
