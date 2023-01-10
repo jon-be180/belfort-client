@@ -118,11 +118,19 @@ export const fetchActiveTrades = (userId) => {
 
     return fetch('http://192.168.1.179:3005/activeTrades')
     .then(
-      response => response.json()
+      response => {
+        if(response.status >= 400) {
+          throw new Error("Server Error, couldn't fetch active trades")
+        }
+        return response.json()
+      }
     )
     .then(
       json => dispatch(populateUsersActiveTrades(userId, json))
     )
+    .catch(err => {
+      throw new Error(err)
+    })
     /* @TODO might want to move to this one in the future
      * removing for now because guide uses fetch() instead
     const response = await backend.get('trades', userId).catch(error => {
@@ -156,6 +164,9 @@ export const fetchInactiveTrades = (userId) => {
     .then(
       json => dispatch(populateUsersInactiveTrades(userId, json))
     )
+    .catch(err => {
+      throw new Error(err)
+    })
     /* @TODO might want to move to this one in the future
      * removing for now because guide uses fetch() instead
     const response = await backend.get('trades', userId).catch(error => {
