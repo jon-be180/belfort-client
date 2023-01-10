@@ -86,7 +86,8 @@ export default function TradesList() {
   // when i use trades it still loops forever
   // also there's a warning about dispatch() but no specific "fix" is posible i think 
   useEffect(() => {
-    dispatch(fetchInactiveTrades(userId));
+    //@TODO turn back on when able to handle api down
+    //dispatch(fetchInactiveTrades(userId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -139,6 +140,9 @@ export default function TradesList() {
       <>
         <div className={classes.root}>
         <Typography>Closed Trades</Typography>
+        {trades.length === 0 &&
+          <Card className={classes.none} ><Typography>No closed trades</Typography></Card>
+        }
     { trades.map((value, index) => {
       return (
     <Accordion key={value.ID} expanded={expanded === 'panel'+value.ID} onChange={handleChange('panel'+value.ID)}>

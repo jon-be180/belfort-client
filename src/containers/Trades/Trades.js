@@ -8,15 +8,18 @@ import TradesAdd from './Add';
 export default function Trades() {
 
   //@TODO fetch from db
-  const accountSize = 6000;
   const accountId = 1;
-  const exposure = 99;
-  const pnl = 99;
-  const winRatio = 99;
+
+  const account = {
+   size: 60000,
+   exposure: 99,
+   pnl: 198, // for the current calendar year
+   winRatio: 99, // for the current calendar year
+  }
 
   return (
     <>
-      <TradesSummary exposure={exposure} pnl={pnl} winRatio={winRatio} accountSize={accountSize} />
+      <TradesSummary exposure={account.exposure} pnl={account.pnl} winRatio={account.winRatio} accountSize={account.size} />
       <ActiveTradesList />
       <TradesAdd exchangeAccountId={accountId} />
       <InactiveTradesList />

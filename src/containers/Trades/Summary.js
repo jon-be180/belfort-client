@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReportsExposure(data) {
+export default function AccountSummary(data) {
 
   const classes = useStyles();
 
@@ -28,7 +28,7 @@ export default function ReportsExposure(data) {
         <Card className={classes.root}>
           <CardContent>
             <Typography variant="body2" component="p">
-              Account Size: { currencyFormatter.format(data.accountSize) }
+              Size: { currencyFormatter.format(data.accountSize) }
             </Typography>
           </CardContent>
         </Card>
@@ -47,7 +47,7 @@ export default function ReportsExposure(data) {
         <Card className={classes.root}>
           <CardContent>
             <Typography variant="body2" component="p">
-              P&L: { data.pnl }%
+              Years P&L: { data.pnl }%
             </Typography>
           </CardContent>
         </Card>
@@ -56,7 +56,7 @@ export default function ReportsExposure(data) {
         <Card className={classes.root}>
           <CardContent>
             <Typography variant="body2" component="p">
-              Win Ratio: { data.winRatio }%
+              Years Win Ratio: { data.winRatio }%
             </Typography>
           </CardContent>
       </Card>
@@ -65,7 +65,7 @@ export default function ReportsExposure(data) {
   );
 }
 
-ReportsExposure.propTypes = {
+AccountSummary.propTypes = {
   exposure: PropTypes.number.isRequired,
   pnl: PropTypes.number.isRequired,
   winRatio: PropTypes.number.isRequired,

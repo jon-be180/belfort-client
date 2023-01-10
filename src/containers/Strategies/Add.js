@@ -21,10 +21,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,10 +68,6 @@ export default function StrategiesAdd(props) {
   const [reason, setReason] = React.useState('');
   const [tradeManagerSettings, setTradeManagerSettings] = React.useState(0);
 
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
   // attempt to get the live bitcoin price
   // @TODO store this more permanently so it only needs updating every hour or so
   const [BtcPrice, setBtcPrice] = React.useState(0);
@@ -173,6 +166,8 @@ export default function StrategiesAdd(props) {
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleOpen}>
         <AddIcon />
       </Fab>
+
+      <div>{BtcPrice}</div>
 
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Start a strategy</DialogTitle>

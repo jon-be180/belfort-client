@@ -85,7 +85,8 @@ export default function TradesList() {
   // when i use trades it still loops forever
   // also there's a warning about dispatch() but no specific "fix" is posible i think 
   useEffect(() => {
-    dispatch(fetchActiveTrades(userId));
+    //@todo catch error for when the API is down
+    //dispatch(fetchActiveTrades(userId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
